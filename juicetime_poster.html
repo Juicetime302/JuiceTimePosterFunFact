@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juicetime Surprise Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #fff8f0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border: 3px solid #ff66aa;
+        }
+
+        h1 {
+            color: #ff3399;
+        }
+
+        .fact {
+            font-size: 20px;
+            margin: 30px 0;
+            color: #444;
+        }
+
+        .button {
+            background-color: #ff3399;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #e62e8d;
+        }
+
+        .final {
+            font-size: 22px;
+            color: #cc0066;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .address,
+        .map,
+        .phone {
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        .map a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>✨ Juicetime Fun Facts ✨</h1>
+        <div class="fact" id="fact">Loading...</div>
+        <button class="button" onclick="nextFact()">Next</button>
+        <div id="final" class="final" style="display:none">
+            🍓 Do you know? You can get a Chocolate Covered Strawberry at Juicetime for just $2!
+            <div class="address">
+                📍 Juicetime NYC<br>
+                302A Grand St, New York, NY 10002
+            </div>
+            <div class="map">
+                🗺️ <a href="https://maps.app.goo.gl/2KNpp3KHcZBy6Cvs5" target="_blank">Get Directions</a>
+            </div>
+            <div class="phone">
+                📞 Call us: 212-480-2100
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const facts = [
+            "Octopuses have three hearts, and two of them stop beating when they swim! 🐙",
+            "A group of flamingos is called a flamboyance! 🦩",
+            "Bananas are berries, but strawberries aren't! 🍌🍓",
+            "Wombat poop is cube-shaped. Seriously. 💩",
+            "Honey never spoils — archaeologists have found 3000-year-old jars of it! 🍯"
+        ];
+
+        let currentFact = 0;
+
+        function nextFact() {
+            const factEl = document.getElementById('fact');
+            const finalEl = document.getElementById('final');
+            if (currentFact < facts.length) {
+                factEl.innerText = facts[currentFact];
+                currentFact++;
+            } else {
+                factEl.style.display = 'none';
+                finalEl.style.display = 'block';
+            }
+        }
+
+        window.onload = nextFact;
+    </script>
+</body>
+
+</html>
